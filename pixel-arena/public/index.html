@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pixel Arena Battle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0c10; --panel:#111318; --ink:#e8e8e8; --sub:#9aa0a6; --accent:#55c2f6; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    h1{font-size:22px;margin:0;letter-spacing:0.3px}
+    .panel{background:var(--panel);border:1px solid #1b1f27;border-radius:14px;padding:12px}
+    .row{display:flex;gap:12px;align-items:stretch}
+    .col{flex:1}
+    canvas{background:#0e1116;border:1px solid #1b1f27;border-radius:12px;display:block}
+    .controls{display:flex;gap:8px;align-items:center}
+    input[type=text]{background:#0f1218;border:1px solid #1b1f27;color:var(--ink);padding:10px 12px;border-radius:10px;outline:none;width:220px}
+    button{background:var(--accent);border:0;color:#001018;font-weight:700;padding:10px 14px;border-radius:10px;cursor:pointer}
+    .muted{color:var(--sub);font-size:12px}
+    .tag{padding:4px 8px;border-radius:999px;background:#121824;border:1px solid #1b1f27;font-size:12px}
+    .list{display:flex;flex-direction:column;gap:8px;max-height:560px;overflow:auto}
+    .badge{font-weight:800}
+    .footer{font-size:12px;color:var(--sub);text-align:center;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>⚡ Pixel Arena Battle</h1>
+      <div class="controls">
+        <input id="name" type="text" maxlength="12" placeholder="Ton pseudo" />
+        <button id="join">Rejoindre</button>
+        <span id="timer" class="tag">--:--</span>
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="col">
+        <div class="panel">
+          <canvas id="game" width="900" height="600"></canvas>
+        </div>
+        <div class="footer">ZQSD ou flèches pour bouger • Collecte les orbes • Score max en 60s</div>
+      </div>
+      <div style="width:300px" class="panel">
+        <h3 style="margin:6px 0 10px 0">🏆 Classement</h3>
+        <div id="board" class="list"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./client.js"></script>
+</body>
+</html>
